@@ -1,0 +1,40 @@
+<app-default-header></app-default-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-card>    
+      <ion-card-header style="text-align: center;">    
+        <img style="width: 20%; height: 20%;" src={{this.service.logo}}>     
+    </ion-card-header> 
+      <ion-card-content> 
+        <h1 style="text-align: center;">Update Supplier</h1>     
+        <ion-list>
+          <ion-item hidden>
+            <ion-input required name="SupplierID" #SupplierID="ngModel" [(ngModel)]="service.formDataSupplier.SupplierID" ></ion-input>
+          </ion-item>
+          <ion-label><strong>Supplier Name:</strong></ion-label>  
+          <ion-item>
+            <ion-input required name="SupplierName" #SupplierName="ngModel" [(ngModel)]="service.formDataSupplier.SupplierName"></ion-input>
+          </ion-item>
+          <ion-label><strong>Contact Name:</strong></ion-label>
+          <ion-item>
+            <ion-input required name="ContactPersonName" #ContactPersonName="ngModel" [(ngModel)]="service.formDataSupplier.ContactPersonName" ></ion-input>
+          </ion-item>
+          <ion-label><strong>Contact Surname:</strong></ion-label>
+          <ion-item>
+            <ion-input required name="ContactPersonSurname" #ContactPersonSurname="ngModel" [(ngModel)]="service.formDataSupplier.ContactPersonSurname" ></ion-input>
+          </ion-item>    
+          <ion-label><strong>Contact Cell:</strong></ion-label>
+          <ion-item>
+            <ion-input required minlength="10" maxlength="10" name="ContactPersonCell" #ContactPersonCell="ngModel" [(ngModel)]="service.formDataSupplier.ContactPersonCell" ></ion-input>
+          </ion-item>  
+          <ion-label><strong>Contact Email:</strong></ion-label>
+          <ion-item style="padding-bottom: 15px;">
+            <ion-input required name="ContactPersonEmail" #ContactPersonEmail="ngModel" [(ngModel)]="service.formDataSupplier.ContactPersonEmail" ></ion-input>
+          </ion-item>         
+        </ion-list>       
+        <ion-button expand="full" [disabled]="!form.form.valid" shape="round" color="primary" full type="submit" >Update Supplier</ion-button>
+      </ion-card-content>
+    </ion-card>   
+  </form>
+</ion-content>

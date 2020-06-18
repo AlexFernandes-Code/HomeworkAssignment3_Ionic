@@ -1,0 +1,36 @@
+<app-default-header></app-default-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-card>    
+      <ion-card-header style="text-align: center;">    
+        <img style="width: 20%; height: 20%;" src={{this.service.logo}}>     
+    </ion-card-header> 
+      <ion-card-content> 
+        <h1 style="text-align: center;">Update Customer</h1>     
+        <ion-list>
+          <ion-item hidden>
+            <ion-input name="CustomerID" #CustomerID="ngModel" [(ngModel)]="service.formDataCustomer.CustomerID"></ion-input>
+          </ion-item>
+          <ion-label><strong>Customer Name:</strong></ion-label>  
+          <ion-item>
+            <ion-input required name="Name" #Name="ngModel" [(ngModel)]="service.formDataCustomer.Name"></ion-input>
+          </ion-item>
+          <ion-label><strong>Customer Surname:</strong></ion-label>  
+          <ion-item>
+            <ion-input required name="Surname" #Surname="ngModel" [(ngModel)]="service.formDataCustomer.Surname"></ion-input>
+          </ion-item>   
+          <ion-label><strong>Customer Cellphone Number:</strong></ion-label>   
+          <ion-item style="padding-bottom: 15px;">
+            <ion-input minlength="10" maxlength="10" required name="Cell" #Cell="ngModel" [(ngModel)]="service.formDataCustomer.Cell"></ion-input>
+          </ion-item>   
+          <ion-label><strong>Customer Company Name:</strong></ion-label>  
+          <ion-item style="padding-bottom: 15px;">
+            <ion-input required name="Company" #Company="ngModel" [(ngModel)]="service.formDataCustomer.Company"></ion-input>
+          </ion-item>     
+        </ion-list>        
+        <ion-button expand="full" [disabled]="!form.form.valid" shape="round" color="primary" full type="submit">Update Customer</ion-button>
+      </ion-card-content>     
+    </ion-card>
+  </form>
+</ion-content>

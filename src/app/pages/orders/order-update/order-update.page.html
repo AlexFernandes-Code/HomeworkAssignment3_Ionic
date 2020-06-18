@@ -1,0 +1,41 @@
+<app-default-header></app-default-header> 
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-card>    
+      <ion-card-header style="text-align: center;">    
+        <img style="width: 20%; height: 20%;" src={{this.service.logo}}>     
+    </ion-card-header>  
+      <ion-card-content>    
+        <h1 style="text-align: center;">Update Order</h1>    
+        <ion-list>
+          <ion-item hidden>         
+            <ion-input name="OrderID" #OrderID="ngModel" [(ngModel)]="service.formDataOrder.OrderID"></ion-input>
+          </ion-item> 
+          <ion-label><strong>Customer:</strong></ion-label>
+          <ion-item>         
+            <ion-select placeholder="Select Customer" required name="CustomerID" #CustomerID="ngModel" [(ngModel)]="service.formDataOrder.CustomerID" style="min-width: 100%; padding: 13px 45px 15px 0px;" interface="alert" >
+              <ion-select-option  *ngFor="let obj of service.listCustomer" [value]="obj.CustomerID"> {{obj.Name}} {{obj.Surname}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-label><strong>Employee:</strong></ion-label>
+          <ion-item>          
+            <ion-select placeholder="Select Employee" required name="UserID" #UserID="ngModel" [(ngModel)]="service.formDataOrder.UserID" style="min-width: 100%; padding: 13px 45px 15px 0px;" interface="alert">
+              <ion-select-option  *ngFor="let obj of service.listUser" [value]="obj.UserID">{{obj.Name}} {{obj.Surname}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-label><strong>Product:</strong></ion-label>
+          <ion-item>            
+            <ion-select placeholder="Select Product" required name="ProductID" #ProductID="ngModel" [(ngModel)]="service.formDataOrder.ProductID" style="min-width: 100%; padding: 13px 45px 15px 0px;" interface="alert">
+              <ion-select-option  *ngFor="let obj of service.listProduct" [value]="obj.ProductID"> {{obj.ProductName}} - R{{obj.Price}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-label><strong>Order Date:</strong></ion-label>
+          <ion-item>        
+            <ion-input required type="date" name="OrderDate" #OrderDate="ngModel" [(ngModel)]="service.formDataOrder.OrderDate"></ion-input>
+          </ion-item>    
+        </ion-list>        
+        <ion-button expand="full" [disabled]="!form.form.valid" shape="round" color="primary" full type="submit" >Update Order</ion-button>
+      </ion-card-content>
+    </ion-card>  
+  </form>
+</ion-content>

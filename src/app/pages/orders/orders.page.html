@@ -1,0 +1,45 @@
+<app-default-header></app-default-header> 
+
+
+<ion-content>   
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary" routerLink="./order-add" full type="submit">          
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>      
+  </ion-fab>    
+  <ion-card>         
+    <ion-card-header style="text-align: center;">    
+      <img style="width: 20%; height: 20%;" src={{this.service.logo}}>     
+      <h1 style="text-align: center;">Orders</h1>  
+    </ion-card-header>
+    <ion-card-content>    
+      <ion-searchbar (ionInput)="filterList($event)"></ion-searchbar>
+      <div>
+        <ion-list>  
+          <ion-item *ngFor="let obj of this.service.listSearchOrder">            
+            <ion-label>        
+              <h2><b> Order Number: {{obj.OrderID}} </b></h2>         
+              <h3>Order Date: {{obj.OrderDate}}</h3>      
+              <h2><b>Product Information:</b></h2>          
+              <p hidden >{{obj.ProductID}}</p>   
+              <h3>{{obj.ProductName}} x {{obj.Quantity}} - R{{obj.ProductPrice}}</h3>    
+              <h2><b>Customer Information:</b></h2>    
+              <h3>{{obj.Customer}}</h3>    
+              <h2><b>Sales Employee:</b></h2>    
+              <h3>{{obj.User}}</h3>    
+              <p hidden>{{obj.UserID}}</p> 
+              <ion-chip slot="start" color="warning" outline routerLink="./order-update" (click)="populateForm(obj)"  type="submit">    
+                <ion-label>Edit</ion-label>
+              </ion-chip>
+              <ion-chip slot="start" color="danger" outline (click)="onDelete(obj.OrderID)"  type="submit">    
+                <ion-label>Delete</ion-label>
+              </ion-chip>  
+            </ion-label>              
+          </ion-item>                
+        </ion-list>       
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

@@ -1,0 +1,41 @@
+<app-default-header></app-default-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-card>    
+      <ion-card-header style="text-align: center;">    
+        <img style="width: 20%; height: 20%;" src={{this.service.logo}}>     
+    </ion-card-header> 
+      <ion-card-content> 
+        <h1 style="text-align: center;">Add Product</h1>       
+        <ion-list>
+          <ion-label><strong>Product Name: </strong></ion-label>  
+          <ion-item>
+            <ion-input required name="ProductName" #ProductName="ngModel" [(ngModel)]="service.formDataProduct.ProductName" ></ion-input>
+          </ion-item>
+          <ion-label><strong>Price: </strong></ion-label>  
+          <ion-item>
+            <ion-input required name="Price" step="0.10" min="0" oninput="this.value = Math.abs(this.value)" type="number" #Price="ngModel" [(ngModel)]="service.formDataProduct.Price" ></ion-input>
+          </ion-item>   
+          <ion-label><strong>Quantity: </strong></ion-label>    
+          <ion-item>
+            <ion-input required name="Quantity" step="0.10" min="0" oninput="this.value = Math.abs(this.value)" type="number" #Quantity="ngModel" [(ngModel)]="service.formDataProduct.Quantity" ></ion-input>
+          </ion-item>  
+          <ion-label><strong>Image Link: </strong></ion-label>  
+          <ion-item>
+            <ion-input required name="Image" #Image="ngModel" [(ngModel)]="service.formDataProduct.Image" ></ion-input>
+          </ion-item>  
+          <ion-label><strong>Product Supplier: </strong></ion-label>  
+          <ion-item>
+            <ion-select placeholder="Select Supplier" required name="SupplierID" #SupplierID="ngModel" [(ngModel)]="service.formDataProduct.SupplierID" style="min-width: 100%; padding: 13px 45px 15px 0px;" interface="alert">
+              <ion-select-option  *ngFor="let obj of service.listSupplier" [value]="obj.SupplierID" >     
+                  {{obj.SupplierName}}  
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>        
+      </ion-card-content>
+      <ion-button expand="full" shape="round" color="primary" full type="submit">Add New Product</ion-button>
+    </ion-card>
+  </form>
+</ion-content>

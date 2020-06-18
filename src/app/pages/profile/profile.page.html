@@ -1,0 +1,43 @@
+<app-default-header></app-default-header>
+    
+<ion-content>  
+  <ion-card>         
+    <ion-card-header style="text-align: center;">    
+      <ion-avatar style="margin:auto">
+        <img src="https://i.ya-webdesign.com/images/avatar-png-1.png" />
+      </ion-avatar> 
+    </ion-card-header>  
+    <ion-card-content style="text-align: center;">
+      <h1>{{service.User.Name}} {{service.User.Surname}}</h1>   
+      <ion-list style="padding-top: 20px;" >
+        <ion-item-divider color="primary" >
+          <ion-label>
+            Personal Details
+          </ion-label>
+        </ion-item-divider> 
+        <ion-item>
+          <ion-label> Name: {{service.User.Name}} </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label> Surname: {{service.User.Surname}} </ion-label>
+        </ion-item> 
+        <ion-item>
+          <ion-label> Date of Birth: {{this.DOB}} </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list style="padding-top: 10px;" >
+        <ion-item-divider color="primary">
+          <ion-label>
+            Account Details
+          </ion-label>
+        </ion-item-divider>
+        <ion-item style="padding-bottom: 15px;">
+          <ion-label> Email address: {{service.User.UserEmail}} </ion-label>
+        </ion-item>           
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+    
+    

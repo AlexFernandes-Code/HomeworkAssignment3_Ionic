@@ -1,0 +1,39 @@
+<app-default-header></app-default-header>
+
+<ion-content>   
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="primary" routerLink="./supplier-add" full type="submit">          
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>      
+  </ion-fab>    
+  <ion-card>         
+    <ion-card-header style="text-align: center;">    
+      <img style="width: 20%; height: 20%;" src={{this.service.logo}}>     
+      <h1 style="text-align: center;">Suppliers</h1>  
+    </ion-card-header>
+    <ion-card-content>    
+      <ion-searchbar (ionInput)="filterList($event)"></ion-searchbar>
+      <div>
+        <ion-list>  
+          <ion-item *ngFor="let obj of service.listSearchSupplier ">
+            <ion-label>              
+              <h1>{{obj.SupplierName}}</h1>   
+              <h3>Supplier ID: {{obj.SupplierID}}</h3>   
+              <h3>Contact Person: {{obj.ContactPersonName}} {{obj.ContactPersonSurname}}</h3>
+              <h3>Email: {{obj.ContactPersonEmail}}</h3>       
+              <h3>Cell: {{obj.ContactPersonCell}}</h3>     
+              <ion-chip color="warning" outline routerLink="./supplier-update" (click)="populateForm(obj)"  type="submit">    
+                <ion-label>Edit</ion-label>
+              </ion-chip>
+              <ion-chip color="danger" outline (click)="onDelete(obj.SupplierID)"  type="submit">    
+                <ion-label>Delete</ion-label>
+              </ion-chip>
+            </ion-label>
+          </ion-item>         
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

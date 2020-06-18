@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar style="text-align: center;">  
+    <ion-item slot="start">
+      <ion-label>Your connection to server:</ion-label><ion-icon color="success" *ngIf="service.Status" name="cloud-done-outline"></ion-icon> <ion-icon color="danger" *ngIf="!service.Status" name="cloud-offline-outline"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-grid style="width: 100%; height: 100%;">
+  <ion-card>
+    <ion-card-header style="text-align: center;">       
+      <ion-card-title>AGL Fernandes (17039917)</ion-card-title>       
+      <ion-card-subtitle>INF354 HW3</ion-card-subtitle>      
+    </ion-card-header>
+    <ion-card-content>    
+      <ion-row>
+        <ion-col>
+          <ion-item >
+            <h2><strong>Instructions:</strong></h2>    
+          </ion-item>
+        </ion-col>
+      </ion-row>  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            1. Complete your Homework 2 if you did not get it working before you had to
+            submit (20)
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item >
+            2. Create a mobile version of your completed homework 2 for Android using Ionic. (50)
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item >
+            3. Create a desktop version of homework 2 using electron. (30)
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> 
+          <ion-button expand="full" shape="round" color="primary"  full routerLink="/login">Click here to begin</ion-button>
+        </ion-col>
+      </ion-row>  
+    </ion-card-content>
+  </ion-card>
+</ion-grid>   
+

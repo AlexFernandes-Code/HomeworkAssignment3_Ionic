@@ -1,0 +1,98 @@
+<app-default-header></app-default-header>
+
+<ion-content>
+  <ion-grid style="width: 100%; height: 100%;">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)"> 
+      <ion-card>
+        <ion-card-header style="text-align: center;">       
+          <img style="width: 30%; height: 30%;" src={{this.service.logo}}>       
+          <h1>Login</h1>    
+        </ion-card-header>
+        <ion-card-content>    
+          <ion-row>
+            <ion-col>
+              <ion-label><strong>Email Address:</strong></ion-label>      
+              <ion-item>
+                <ion-input required name="UserEmail" #UserEmail="ngModel" [(ngModel)]="service.formDataLogin.UserEmail" placeholder="joe@mail.com"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-label><strong>Password:</strong></ion-label>      
+              <ion-item>
+                <ion-input required name="UserPassword" #UserPassword="ngModel" [(ngModel)]="service.formDataLogin.UserPassword" placeholder="Password" type="password"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>    
+                <ion-button shape="round" expand="full" [disabled]="!form.form.valid" color="primary" full type="submit">Login</ion-button>      
+                <p>Dont have an account? Click <a type="link" routerLink="/register" >here</a> to Register. </p>    
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </form>
+  </ion-grid>   
+</ion-content>
+
+
+
+
+  <!--
+<ion-card>
+  <ion-card-content style="font-size:10px; color:white">
+    <ion-title>Login credentials for marker:</ion-title>    
+    <ion-card-subtitle>(You can still register if you want to)</ion-card-subtitle>   
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          Username
+        </ion-col>
+        <ion-col size="4">
+          Password
+        </ion-col>
+        <ion-col size="4">
+          Access
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          ceo@email.com
+          alex@gmail.com
+        </ion-col>
+        <ion-col size="4">
+          12345678
+        </ion-col>
+        <ion-col size="4">
+          Can do what manager can + access employees.
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          manager@email.com
+        </ion-col>
+        <ion-col size="4">
+          12345678
+        </ion-col>
+        <ion-col size="4">
+          Can do what sales employee can + access customers and products.
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          salesemployee@email.com            
+        </ion-col>
+        <ion-col size="4">
+          12345678
+        </ion-col>
+        <ion-col size="4">
+          Can access record sales.
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+  </ion-card-content>
+</ion-card>
+-->
+

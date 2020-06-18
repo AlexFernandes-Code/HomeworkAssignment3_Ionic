@@ -1,0 +1,15 @@
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <div style="text-align: center;">
+        <img style="width: 90%; padding:20px;" src="https://secureservercdn.net/198.71.233.44/y38.108.myftpupload.com/wp-content/uploads/2019/10/WelcomeBack-Hotsheet-Avatar-669x272.jpg"/>
+        <h2 >Welcome back:<br> <strong>{{this.service.User.Name}} {{this.service.User.Surname}}</strong></h2>
+        <h4 *ngIf="service.Status">You are connected to the <b>API</b>. <ion-icon color="success" *ngIf="service.Status" name="cloud-done-outline"></ion-icon></h4>
+        <h4 style="padding-bottom: 20px;" *ngIf="!service.Status">You are disconnected from the <b>API</b>. <ion-icon color="danger" *ngIf="!service.Status" name="cloud-offline-outline"></ion-icon></h4>
+        <h4 style="padding-bottom: 20px;" *ngIf="service.User?.TypeID  == 1">Your access type is: <b>  Sales Employee</b></h4>
+        <h4 style="padding-bottom: 20px;" *ngIf="service.User?.TypeID  == 2">Your access type is: <b>  Sales Manager</b></h4>   
+        <ion-button shape="round" routerLink="/mainmenu"  *ngIf="service.Status"  color="primary" full type="submit">Continue</ion-button>      
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

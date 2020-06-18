@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>       
+    </ion-buttons> 
+    <ion-buttons slot="end">
+      <ion-chip outline routerLink="/login" (click)="Logout()"  type="submit">    
+          <ion-label>Logout</ion-label>
+      </ion-chip>
+      <ion-chip outline routerLink="/profile">
+        <ion-avatar>
+          <img src="https://i.ya-webdesign.com/images/avatar-png-1.png" />
+        </ion-avatar>
+        <ion-label>Profile</ion-label>
+      </ion-chip>    
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>       
+<ion-menu side="start" content-id="content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-item>
+      <ion-thumbnail><img style="width: 80%; height: 80%;" src={{this.service.logo}}></ion-thumbnail>
+      <ion-title> HR-Track™ </ion-title>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>  
+  <ion-content>
+    <ion-list>   
+      <ion-item routerLink='/customers' *ngIf="service.User?.TypeID  == 2 || service.User?.TypeID  == 1">
+        <ion-icon color="primary" name="people" slot="start"></ion-icon>
+        <ion-label>Customers</ion-label>
+      </ion-item>
+      <ion-item routerLink='/products' *ngIf="service.User?.TypeID  == 2 " >
+        <ion-icon color="primary" name="pricetags-outline" slot="start"></ion-icon>
+        <ion-label>Products</ion-label>
+      </ion-item>
+      <ion-item routerLink='/suppliers' *ngIf="service.User?.TypeID  == 2">
+        <ion-icon color="primary" name="business-outline" slot="start"></ion-icon>
+        <ion-label>Suppliers</ion-label>
+      </ion-item> 
+      <ion-item routerLink='/orders' *ngIf="service.User?.TypeID  == 2 || service.User?.TypeID  == 1">
+        <ion-icon color="primary" name="document-outline" slot="start"></ion-icon>
+        <ion-label>Orders</ion-label>
+      </ion-item>   
+    </ion-list>
+  </ion-content>
+</ion-menu>
